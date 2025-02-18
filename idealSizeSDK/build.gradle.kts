@@ -2,6 +2,29 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    `maven-publish`
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            groupId = "com.myevstratiev"
+            artifactId = "ideal-size-android"
+            version = "1.0.0"
+            artifact("$buildDir/outputs/aar/idealSizeSDK-release.aar")
+        }
+    }
+
+    repositories {
+        maven {
+            name = "IdealSizeAndroid"
+            url = uri("https://github.com/mikhail-yevstratiev/IdealSizeAndroid")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
 }
 
 android {
