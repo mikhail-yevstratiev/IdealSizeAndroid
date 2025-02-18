@@ -18,7 +18,7 @@ publishing {
     repositories {
         maven {
             name = "IdealSizeAndroid"
-            url = uri("https://github.com/mikhail-yevstratiev/IdealSizeAndroid")
+            url = uri("https://maven.pkg.github.com/mikhail-yevstratiev/IdealSizeAndroid")
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
